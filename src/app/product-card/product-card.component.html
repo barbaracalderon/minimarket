@@ -1,4 +1,4 @@
-<mat-card>
+<mat-card (click)="viewProduct()">
   <img mat-card-image [src]="product.image" alt="Product Image" class="product-image">
   <mat-card-content>
     <h2>{{ product.name }}</h2>

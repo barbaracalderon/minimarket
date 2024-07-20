@@ -20,25 +20,28 @@ import { ProductCardComponent } from '../product-card/product-card.component';
 })
 export class HomeComponent {
   offers = [
-    { image: 'assets/offer1.jpg' },
-    { image: 'assets/offer2.jpg' },
-    { image: 'assets/offer3.jpg' },
+    { id: 1, image: 'assets/offer1.jpg' },
+    { id: 2, image: 'assets/offer2.jpg' },
+    { id: 3, image: 'assets/offer3.jpg' },
   ];
 
   bestSellers = [
     {
+      id: 1,
       name: 'Produto 1',
       image: 'assets/product1.jpg',
       description: 'Descrição do Produto 1',
       price: 100,
     },
     {
+      id: 2,
       name: 'Produto 2',
       image: 'assets/product2.jpg',
       description: 'Descrição do Produto 2',
       price: 70,
     },
     {
+      id: 3,
       name: 'Produto 3',
       image: 'assets/product3.jpg',
       description: 'Descrição do Produto 3',
@@ -48,18 +51,21 @@ export class HomeComponent {
 
   dailyDeals = [
     {
+      id: 11,
       name: 'Oferta 1',
       image: 'assets/deal1.jpg',
       description: 'Descrição da Oferta 1',
       price: 55,
     },
     {
+      id: 12,
       name: 'Oferta 2',
       image: 'assets/deal2.jpg',
       description: 'Descrição da Oferta 2',
       price: 53,
     },
     {
+      id: 13,
       name: 'Oferta 3',
       image: 'assets/deal3.jpg',
       description: 'Descrição da Oferta 3',
