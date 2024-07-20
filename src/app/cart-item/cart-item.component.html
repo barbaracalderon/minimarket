@@ -1,0 +1,15 @@
+<div class="cart-item">
+    <img [src]="item.imageUrl" alt="{{ item.name }}" class="product-image">
+    <div class="product-details">
+      <h5>{{ item.name }}</h5>
+      <p>Preço Unitário: R$ {{ item.unitPrice | currency }}</p>
+      <p>Total: R$ {{ item.total | currency }}</p>
+      <div class="quantity-controls">
+        <button (click)="decrementQuantity()">-</button>
+        <span>{{ item.quantity }}</span>
+        <button (click)="incrementQuantity()">+</button>
+      </div>
+      <button class="btn btn-danger" (click)="removeFromCart()">Excluir</button>
+    </div>
+  </div>
+  

@@ -1,15 +1,23 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { CartService } from '../cart/cart.service';
+import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-header',
+  standalone: true,
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
-  standalone: true
+  imports: [CommonModule, RouterLink]
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
   cartItemCount: number = 0;
 
-  constructor() {
-    this.cartItemCount = 2; // Apenas um mock, pessoal, depois trocamos para a lógica mesmo :)
+  constructor(private cartService: CartService) { }
+
+  ngOnInit(): void {
+    this.cartService.cartItems$.subscribe(items => {
+      this.cartItemCount = items.length;
+    });
   }
 }
