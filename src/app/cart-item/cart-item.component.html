@@ -1,0 +1,14 @@
+<div class="cart-item d-flex align-items-center mb-3 p-2 border rounded">
+    <img [src]="product.imageUrl" alt="{{ product.name }}" class="cart-item-image">
+    <div class="cart-item-details ms-3">
+      <h5 class="cart-item-name">{{ product.name }}</h5>
+      <div class="quantity-controls d-flex align-items-center">
+        <button class="btn btn-outline-secondary btn-sm" (click)="decrementQuantity()">-</button>
+        <span class="mx-2">{{ product.quantity }}</span>
+        <button class="btn btn-outline-secondary btn-sm" (click)="incrementQuantity()">+</button>
+      </div>
+      <p class="cart-item-total mt-2">Total: R$ {{ product.total }}</p>
+      <button class="btn btn-danger btn-sm mt-2" (click)="removeItem()">Excluir</button>
+    </div>
+  </div>
+  
