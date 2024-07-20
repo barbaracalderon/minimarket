@@ -1,0 +1,55 @@
+$primary-color: #f1ddbf;
+$secondary-color: #525e75;
+$tertiary-color: #78938a;
+$quaternary-color: #92ba92;
+$white-color: #ffffff;
+$black-color: #000000;
+
+.cart-items-list {
+  .cart-item {
+    border: 1px solid $secondary-color;
+    background-color: $white-color;
+    margin-bottom: 10px;
+
+    .cart-item-image {
+      max-width: 80px;
+      max-height: 80px;
+    }
+
+    .cart-item-details {
+      .quantity-controls {
+        button {
+          background-color: $quaternary-color;
+          color: $white-color;
+        }
+      }
+
+      .cart-item-total {
+        color: $tertiary-color;
+      }
+
+      .btn-danger {
+        background-color: $secondary-color;
+        border: none;
+      }
+    }
+  }
+}
+
+.cart-summary {
+  border-top: 2px solid $primary-color;
+  padding-top: 10px;
+  margin-top: 10px;
+}
+
+.empty-cart {
+  p {
+    color: $secondary-color;
+  }
+
+  .btn-secondary {
+    background-color: $quaternary-color;
+    border: none;
+  }
+}
+
