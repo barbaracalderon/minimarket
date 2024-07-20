@@ -23,5 +23,4 @@ export class CartService {
     const currentItems = this.cartItems.getValue().filter(item => item.id !== itemId);
     this.cartItems.next(currentItems);
   }
-
 }
