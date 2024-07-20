@@ -1,0 +1,25 @@
+<div *ngIf="cartItems.length; else emptyCart">
+    <div class="cart-items-list">
+      <app-cart-item
+        *ngFor="let item of cartItems"
+        [item]="item"
+        (quantityChanged)="updateTotal()"
+        (itemRemoved)="removeFromCart(item)"
+      ></app-cart-item>
+    </div>
+    <div class="cart-summary">
+      <h4>Resumo da Compra</h4>
+      <p>Valor dos Produtos: {{ totalValue | currency }}</p>
+      <p>Valor do Frete: {{ shippingCost | currency }}</p>
+      <p>Total da Compra: {{ totalAmount | currency }}</p>
+      <button class="btn btn-primary">Comprar</button>
+    </div>
+  </div>
+  
+  <ng-template #emptyCart>
+    <div class="empty-cart text-center">
+      <p>O carrinho está vazio.</p>
+      <a class="btn btn-secondary" routerLink="/">Iniciar Busca</a>
+    </div>
+  </ng-template>
+  
