@@ -60,23 +60,20 @@
   <h2>Mais Vendidos da Semana</h2>
   <div class="card-container">
     <app-product-card
+      class="card"
       *ngFor="let product of bestSellers"
       [product]="product"
     ></app-product-card>
   </div>
 </div>
 
-<div class="section">
+<div class="section quarternary-color">
   <h2>Ofertas do Dia</h2>
   <div class="card-container">
-    <mat-card *ngFor="let product of dailyDeals">
-      <mat-card-header>
-        <mat-card-title>{{ product.name }}</mat-card-title>
-      </mat-card-header>
-      <img mat-card-image [src]="product.image" alt="Product Image" />
-      <mat-card-content>
-        <p>{{ product.description }}</p>
-      </mat-card-content>
-    </mat-card>
+    <app-product-card
+      class="card"
+      *ngFor="let product of dailyDeals"
+      [product]="product"
+    ></app-product-card>
   </div>
 </div>

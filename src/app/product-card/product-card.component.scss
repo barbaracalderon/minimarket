@@ -8,8 +8,8 @@
 .product-image {
   max-height: 180px;
   max-width: 200px;
-  object-fit: cover;
-  width: 100%;
+  object-fit: scale-down;
+  width: 100%; 
   padding: 10px;
 }
 
