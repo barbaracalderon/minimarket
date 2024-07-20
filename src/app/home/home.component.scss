@@ -1,5 +1,9 @@
 /* src/app/home/home.component.scss */
 
+#carouselHome {
+  margin-top: 20px;
+}
+
 .carousel-item img {
   max-height: 300px;
   object-fit: scale-down;
