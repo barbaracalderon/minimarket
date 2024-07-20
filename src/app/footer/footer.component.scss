@@ -1,0 +1,38 @@
+$primary-color: #f1ddbf;
+$secondary-color: #78938a; 
+$tertiary-color: #92ba92;
+$quaternary-color: #525e75;
+$white-color: #ffffff;
+$black-color: #000000;
+
+.custom-footer {
+  background-color: $secondary-color;
+  color: $white-color;
+  padding: 20px;
+  font-size: 0.9rem;
+
+  .footer-logo img {
+    max-height: 50px;
+    margin-bottom: 10px;
+  }
+
+  .footer-links {
+    margin: 10px 0;
+
+    .footer-link {
+      color: $white-color;
+      margin: 0 10px;
+      text-decoration: none;
+
+      &:hover {
+        color: $primary-color;
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .footer-company {
+    margin-top: 10px;
+    font-size: 0.8rem;
+  }
+}
