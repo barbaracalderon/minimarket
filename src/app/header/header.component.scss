@@ -1,0 +1,43 @@
+$primary-color: #f1ddbf;
+$secondary-color: #525e75;
+$tertiary-color: #78938a;
+$quaternary-color: #92ba92;
+$white-color: #ffffff;
+$black-color: #000000;
+
+.custom-navbar {
+  background-color: $primary-color;
+
+  .navbar-brand img {
+    max-height: 40px;
+  }
+
+  .form-control {
+    border: 1px solid $secondary-color;
+    &:focus {
+      border-color: $tertiary-color;
+      box-shadow: 0 0 0 0.2rem rgba($tertiary-color, 0.25);
+    }
+  }
+
+  .btn-outline-search {
+    color: $secondary-color;
+    border-color: $secondary-color;
+    &:hover {
+      background-color: $secondary-color;
+      color: $white-color;
+    }
+  }
+
+  .nav-link {
+    color: $secondary-color;
+    margin-left: 10px;
+    &:hover {
+      color: $tertiary-color;
+    }
+  }
+
+  .badge {
+    font-size: 0.75rem;
+  }
+}
