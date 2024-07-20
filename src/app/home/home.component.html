@@ -1,5 +1,8 @@
-<!-- src/app/home/home.component.html -->
-<div id="carouselHome" class="carousel slide" data-bs-ride="carousel">
+<div
+  id="carouselHome"
+  class="carousel slide tertiary-color"
+  data-bs-ride="carousel"
+>
   <div class="carousel-indicators">
     <button
       type="button"
@@ -53,18 +56,13 @@
   </button>
 </div>
 
-<div class="section">
+<div class="section quarternary-color">
   <h2>Mais Vendidos da Semana</h2>
   <div class="card-container">
-    <mat-card *ngFor="let product of bestSellers">
-      <mat-card-header>
-        <mat-card-title>{{ product.name }}</mat-card-title>
-      </mat-card-header>
-      <img mat-card-image [src]="product.image" alt="Product Image" />
-      <mat-card-content>
-        <p>{{ product.description }}</p>
-      </mat-card-content>
-    </mat-card>
+    <app-product-card
+      *ngFor="let product of bestSellers"
+      [product]="product"
+    ></app-product-card>
   </div>
 </div>
 

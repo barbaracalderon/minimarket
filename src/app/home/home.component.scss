@@ -1,4 +1,19 @@
-/* src/app/home/home.component.scss */
+$primary-color: #f1ddbf;
+$secondary-color: #525e75;
+$tertiary-color: #78938a;
+$quaternary-color: #92ba92;
+$white-color: #ffffff;
+$black-color: #000000;
+
+.tertiary-color {
+  color: $tertiary-color;
+  background: linear-gradient(to right, $tertiary-color, $white-color);
+}
+
+.quarternary-color {
+  background: linear-gradient(to right, $quaternary-color, $white-color);
+}
+
 
 #carouselHome {
   margin-top: 20px;
@@ -11,26 +26,17 @@
 }
 
 .section {
-  margin: 20px 0;
+  margin: 20px 0 0 20px;
 }
 
 .card-container {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
+  margin: 10px 20px 0 20px;
+  padding-bottom: 10px;
 }
 
-mat-card {
-  width: calc(33% - 10px);
-  display: flex;
-  flex-direction: column;
-}
-
-mat-card img {
-  height: 200px;
-  object-fit: cover;
-  width: 60%;
-}
 
 footer {
   margin-top: 20px;
