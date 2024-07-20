@@ -1,33 +1,32 @@
+import { CommonModule } from '@angular/common';
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-cart-item',
   templateUrl: './cart-item.component.html',
   styleUrls: ['./cart-item.component.scss'],
-  standalone: true
+  standalone: true,
+  imports: [CommonModule]
 })
 export class CartItemComponent {
-  @Input() product!: { imageUrl: string, name: string, quantity: number, unitPrice: number, total: number };
-  @Output() quantityChanged = new EventEmitter<number>();
-  @Output() itemRemoved = new EventEmitter<void>();
+  @Input() item: any;
+  @Output() remove = new EventEmitter<void>();
 
   incrementQuantity() {
-    if (this.product.quantity < 99) {
-      this.product.quantity++;
-      this.product.total = this.product.unitPrice * this.product.quantity;
-      this.quantityChanged.emit(this.product.quantity);
+    if (this.item.quantity < 10) {
+      this.item.quantity++;
+      this.item.total = this.item.unitPrice * this.item.quantity;
     }
   }
 
   decrementQuantity() {
-    if (this.product.quantity > 1) {
-      this.product.quantity--;
-      this.product.total = this.product.unitPrice * this.product.quantity;
-      this.quantityChanged.emit(this.product.quantity);
+    if (this.item.quantity > 1) {
+      this.item.quantity--;
+      this.item.total = this.item.unitPrice * this.item.quantity;
     }
   }
 
-  removeItem() {
-    this.itemRemoved.emit();
+  removeFromCart() {
+    this.remove.emit();
   }
 }

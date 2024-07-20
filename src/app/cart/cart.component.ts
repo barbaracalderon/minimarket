@@ -1,29 +1,33 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { CartService } from '../cart/cart.service';
 import { CartItemComponent } from "../cart-item/cart-item.component";
 import { CommonModule } from '@angular/common';
+import { RouterLink, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.scss'],
   standalone: true,
-  imports: [CartItemComponent, CommonModule]
+  imports: [CartItemComponent, CommonModule, RouterLink]
 })
-export class CartComponent {
-  cartItems = [
-    { imageUrl: 'assets/product1.jpg', name: 'Produto 1', quantity: 2, unitPrice: 50, total: 100 }, // Apenas mock, pessoal, alteramos depois
-    { imageUrl: 'assets/product2.jpg', name: 'Produto 2', quantity: 1, unitPrice: 30, total: 30 } // Apenas mock, pessoal, alteramos depois
-  ];
+export class CartComponent implements OnInit {
+  cartItems: any[] = [];
   shippingCost = 10;
   totalValue = 0;
   totalAmount = 0;
 
-  constructor() {
-    this.updateTotal();
+  constructor(private cartService: CartService) { }
+
+  ngOnInit(): void {
+    this.cartService.cartItems$.subscribe(items => {
+      this.cartItems = items;
+      this.updateTotal();
+    });
   }
 
   updateTotal() {
-    this.totalValue = this.cartItems.reduce((sum, item) => sum + item.total, 0);
+    this.totalValue = this.cartItems.reduce((sum, item) => sum + item.unitPrice * item.quantity, 0);
     this.totalAmount = this.totalValue + this.shippingCost;
   }
 
@@ -31,4 +35,5 @@ export class CartComponent {
     this.cartItems = this.cartItems.filter(i => i !== item);
     this.updateTotal();
   }
+  
 }

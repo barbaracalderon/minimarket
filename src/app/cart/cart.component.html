@@ -2,16 +2,16 @@
     <div class="cart-items-list">
       <app-cart-item
         *ngFor="let item of cartItems"
-        [product]="item"
+        [item]="item"
         (quantityChanged)="updateTotal()"
         (itemRemoved)="removeFromCart(item)"
       ></app-cart-item>
     </div>
     <div class="cart-summary">
       <h4>Resumo da Compra</h4>
-      <p>Valor dos Produtos: R$ {{ totalValue }}</p>
-      <p>Valor do Frete: R$ {{ shippingCost }}</p>
-      <p>Total da Compra: R$ {{ totalAmount }}</p>
+      <p>Valor dos Produtos: {{ totalValue | currency }}</p>
+      <p>Valor do Frete: {{ shippingCost | currency }}</p>
+      <p>Total da Compra: {{ totalAmount | currency }}</p>
       <button class="btn btn-primary">Comprar</button>
     </div>
   </div>
