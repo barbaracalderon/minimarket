@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CurrencyPipe, CommonModule } from '@angular/common';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { CartService } from '../../../../cart/cart.service';
 
 @Component({
   selector: 'app-product-view',
@@ -21,9 +22,17 @@ export class ProductViewComponent implements OnInit {
     'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
   ];
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(
+    private route: ActivatedRoute,
+    private cartService: CartService
+  ) {}
 
   ngOnInit(): void {
+    //const productId = Number(this.route.snapshot.paramMap.get('id'));
+    // this.productService.getProductById(productId).subscribe((product) => {
+    //   this.product = product;
+    // });
+
     const productId = this.route.snapshot.paramMap.get('id');
     this.product = {
       id: productId,
@@ -32,5 +41,10 @@ export class ProductViewComponent implements OnInit {
       description: 'Descrição detalhada do produto.',
       price: 59.99,
     };
+  }
+  
+  addToCart(): void {
+    this.cartService.addItem(this.product);
+    alert('Produto adicionado ao carrinho!');
   }
 }

@@ -1,3 +1,42 @@
+$primary-color: #f1ddbf;
+$secondary-color: #525e75;
+$tertiary-color: #78938a;
+$quaternary-color: #92ba92;
+$white-color: #ffffff;
+$black-color: #000000;
+
+.gradient-tertiary-color {
+  background: linear-gradient(to right, $tertiary-color, $white-color);
+}
+
+.gradient-secondary-collor {
+  background: linear-gradient(to right, $secondary-color, $white-color);
+}
+
+.gradient-quarternary-color {
+  background: linear-gradient(to right, $quaternary-color, $white-color);
+}
+
+
+#carousel {
+  margin-top: 20px;
+}
+
+.carousel-inner {
+  display: flex;
+  gap: 20px;
+}
+.carousel-item {
+  margin: 30px 30px 30px 15px;
+  padding: 10px 10px 0 20px;
+  img {
+    max-height: 400px;
+    object-fit: scale-down;
+    width: 60%;
+  }
+}
+
+
 .product-view {
   padding: 20px;
 }
@@ -35,3 +74,4 @@
   padding: 10px;
   border-bottom: 1px solid #ccc;
 }
+
