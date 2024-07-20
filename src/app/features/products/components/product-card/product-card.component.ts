@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { CurrencyPipe } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-product-card',
@@ -11,5 +12,11 @@ import { CurrencyPipe } from '@angular/common';
   providers: [CurrencyPipe],
 })
 export class ProductCardComponent {
-  @Input() product!: { name: string; image: string; price: number };
+  @Input() product!: { id: number; name: string; image: string; price: number };
+
+  constructor(private router: Router) {}
+
+  viewProduct() {
+    this.router.navigate(['/product', this.product.id]);
+  }
 }
