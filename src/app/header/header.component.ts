@@ -1,23 +1,39 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { CartService } from '../cart/cart.service';
+import { ProductService } from '../shared/services/product.service';
+import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { RouterLink } from '@angular/router';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-header',
-  standalone: true,
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
-  imports: [CommonModule, RouterLink]
+  standalone: true,
+  imports: [RouterModule, CommonModule, FormsModule]
 })
-export class HeaderComponent implements OnInit {
-  cartItemCount: number = 0;
+export class HeaderComponent {
+  searchQuery: string = '';
+  searchResults: any[] = [];
+  noResults: boolean = false;
 
-  constructor(private cartService: CartService) { }
-
-  ngOnInit(): void {
-    this.cartService.cartItems$.subscribe(items => {
-      this.cartItemCount = items.length;
+  constructor(private productService: ProductService, private cartService: CartService, private router: Router) {
+    this.productService.searchResults$.subscribe(results => {
+      this.searchResults = results;
+      this.noResults = results.length === 0;
     });
+  }
+
+  get cartItemCount(): number {
+    return this.cartService.getCartItemCount();
+  }
+
+  onSearch(event: Event): void {
+    event.preventDefault();
+    if (this.searchQuery.trim()) {
+      this.productService.searchProducts(this.searchQuery);
+      this.router.navigate(['/search']);
+    }
   }
 }
