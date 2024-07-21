@@ -4,6 +4,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { ProductCardComponent } from '../features/products/components/product-card/product-card.component';
+import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -13,12 +15,15 @@ import { ProductCardComponent } from '../features/products/components/product-ca
     MatToolbarModule,
     MatCardModule,
     MatGridListModule,
+    FormsModule,
     ProductCardComponent,
   ],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent {
+  searchQuery: string = '';
+  
   offers = [
     { id: 1, image: 'assets/offer1.jpg' },
     { id: 2, image: 'assets/offer2.jpg' },
@@ -72,4 +77,12 @@ export class HomeComponent {
       price: 51,
     },
   ];
+
+  constructor(private router: Router) {}
+
+  onSearch(): void {
+    if (this.searchQuery.trim()) {
+      this.router.navigate(['/search'], { queryParams: { query: this.searchQuery } });
+    }
+  }
 }

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { ProductService } from '../shared/services/product.service';
 import { CommonModule } from '@angular/common';
 
@@ -13,11 +13,21 @@ import { CommonModule } from '@angular/common';
 export class SearchResultComponent {
   searchResults: any[] = [];
   noResults: boolean = false;
+  searchQuery: string = '';
 
-  constructor(private productService: ProductService, private router: Router) {
+  constructor(private productService: ProductService, private route: ActivatedRoute, private router: Router) {
     this.productService.searchResults$.subscribe(results => {
       this.searchResults = results;
       this.noResults = results.length === 0;
+    });
+  }
+
+  ngOnInit(): void {
+    this.route.queryParams.subscribe(params => {
+      this.searchQuery = params['query'] || '';
+      if (this.searchQuery.trim()) {
+        this.productService.searchProducts(this.searchQuery);
+      }
     });
   }
 

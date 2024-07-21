@@ -41,6 +41,28 @@ $black-color: #000000;
   }
 }
 
+.search-container {
+  text-align: center;
+  margin: 20px 0;
+
+  .search-box {
+    display: inline-flex;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    
+    .form-control {
+      flex: 1;
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+    
+    .btn-primary {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+  }
+}
 
 footer {
   margin-top: 20px;
