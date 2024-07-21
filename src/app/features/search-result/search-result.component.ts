@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ProductService } from '../shared/services/product.service';
+import { ProductService } from '../../shared/services/product.service';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -7,13 +7,13 @@ import { CommonModule } from '@angular/common';
   templateUrl: './search-result.component.html',
   styleUrls: ['./search-result.component.scss'],
   imports: [CommonModule],
-  standalone: true
+  standalone: true,
 })
 export class SearchResultComponent {
   searchResults: any[] = [];
 
   constructor(private productService: ProductService) {
-    this.productService.searchResults$.subscribe(results => {
+    this.productService.searchResults$.subscribe((results: any[]) => {
       this.searchResults = results;
     });
   }

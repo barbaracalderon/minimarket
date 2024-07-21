@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CurrencyPipe, CommonModule } from '@angular/common';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { CartService } from '../../../../cart/cart.service';
+import { CartService } from '../../../cart/cart.service';
 
 @Component({
   selector: 'app-product-view',
@@ -42,7 +42,7 @@ export class ProductViewComponent implements OnInit {
       price: 59.99,
     };
   }
-  
+
   addToCart(): void {
     this.cartService.addItem(this.product);
     alert('Produto adicionado ao carrinho!');
