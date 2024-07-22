@@ -22,3 +22,15 @@ $black-color: #000000;
   background: linear-gradient(to right, $quaternary-color, $white-color);
   
 }
+
+.gradient-tertiary-color {
+  background: linear-gradient(to right, $tertiary-color, $white-color);
+}
+
+.gradient-secondary-collor {
+  background: linear-gradient(to right, $secondary-color, $white-color);
+}
+
+.gradient-quarternary-color {
+  background: linear-gradient(to right, $quaternary-color, $white-color);
+}
