@@ -12,9 +12,13 @@ $black-color: #000000;
 
 .tertiary-color {
   color: $tertiary-color;
-  background: linear-gradient(to right, $tertiary-color, $white-color);
+  background: linear-gradient(to top, $tertiary-color, $white-color, $quaternary-color);
+  background: linear-gradient(to right, $tertiary-color, $white-color, $quaternary-color);
+  background: linear-gradient(to bottom, $tertiary-color, $white-color, $quaternary-color);
+  background: linear-gradient(to left, $tertiary-color, $white-color, $quaternary-color);
 }
 
 .quarternary-color {
   background: linear-gradient(to right, $quaternary-color, $white-color);
+  
 }
