@@ -31,7 +31,7 @@ export class SearchResultComponent {
     this.route.queryParams.subscribe((params) => {
       this.searchQuery = params['query'] || '';
       if (this.searchQuery.trim()) {
-        this.productService.searchProducts(this.searchQuery);
+        this.productService.getProductsByDescription(this.searchQuery);
       }
     });
   }
