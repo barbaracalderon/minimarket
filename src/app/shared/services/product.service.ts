@@ -3,7 +3,7 @@ import { BehaviorSubject, of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { IProduct } from '../../core/models/product.model';
-import { map } from 'rxjs/operators';
+import { filter, map, tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
@@ -11,31 +11,47 @@ import { map } from 'rxjs/operators';
 export class ProductService {
   private products: any[] = [];
   private productsUrl = '/assets/productDB.json';
+  private productsLoaded = new BehaviorSubject<boolean>(false);
 
-  constructor(private http: HttpClient ) {}
+  private searchResults = new BehaviorSubject<IProduct[]>([]);
+  searchResults$ = this.searchResults.asObservable();
+
+  constructor(private http: HttpClient) {
+    this.loadProducts();
+  }
+
+  private loadProducts() {
+    this.http.get<IProduct[]>(this.productsUrl).subscribe((data) => {
+      this.products = data;
+      this.productsLoaded.next(true);
+    });
+  }
 
   getProducts(): Observable<IProduct[]> {
-    return this.http.get<IProduct[]>(this.productsUrl);
+    return this.productsLoaded.pipe(
+      filter((loaded) => loaded), // wait for products to load
+      map(() => this.products)
+    );
   }
 
   getProductById(id: number): Observable<IProduct> {
-    let response = this.http.get<IProduct[]>(this.productsUrl).pipe(
-      map((products: IProduct[]) => products.find((product: IProduct) => product.id === id)) // Specify the types for the parameters
-    );    
-    return response as Observable<IProduct>;
-  }
-
-  ngOnInit(): void {
-    
-  }
-
-  private searchResults = new BehaviorSubject<any[]>([]);
-  searchResults$ = this.searchResults.asObservable();
-
-  searchProducts(query: string) {
-    const results = this.products.filter((product) =>
-      product.name.toLowerCase().includes(query.toLowerCase())
+    return this.productsLoaded.pipe(
+      filter((loaded) => loaded), // Wait until products are loaded
+      map(() => this.products.find((product) => product.id === id))
     );
-    this.searchResults.next(results);
+  }
+
+  getProductsByDescription(query: string) {
+    this.productsLoaded
+      .pipe(
+        filter((loaded) => loaded),
+        tap(() => {
+          const results = this.products.filter((product) =>
+            product.name.toLowerCase().includes(query.toLowerCase())
+          );
+          this.searchResults.next(results);
+        })
+      )
+      .subscribe();
   }
 }
