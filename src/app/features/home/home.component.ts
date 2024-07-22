@@ -4,6 +4,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { ProductCardComponent } from '../products/components/product-card/product-card.component';
+import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -13,37 +15,40 @@ import { ProductCardComponent } from '../products/components/product-card/produc
     MatToolbarModule,
     MatCardModule,
     MatGridListModule,
+    FormsModule,
     ProductCardComponent,
   ],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent {
+  searchQuery: string = '';
+
   offers = [
-    { id: 1, image: 'assets/offer1.jpg' },
-    { id: 2, image: 'assets/offer2.jpg' },
-    { id: 3, image: 'assets/offer3.jpg' },
+    { id: 1, imageUrl: 'assets/offer1.jpg' },
+    { id: 2, imageUrl: 'assets/offer2.jpg' },
+    { id: 3, imageUrl: 'assets/offer3.jpg' },
   ];
 
   bestSellers = [
     {
       id: 1,
       name: 'Produto 1',
-      image: 'assets/product1.jpg',
+      imageUrl: 'assets/product1.jpg',
       description: 'Descrição do Produto 1',
       price: 100,
     },
     {
       id: 2,
       name: 'Produto 2',
-      image: 'assets/product2.jpg',
+      imageUrl: 'assets/product2.jpg',
       description: 'Descrição do Produto 2',
       price: 70,
     },
     {
       id: 3,
       name: 'Produto 3',
-      image: 'assets/product3.jpg',
+      imageUrl: 'assets/product3.jpg',
       description: 'Descrição do Produto 3',
       price: 25,
     },
@@ -53,23 +58,33 @@ export class HomeComponent {
     {
       id: 11,
       name: 'Oferta 1',
-      image: 'assets/deal1.jpg',
+      imageUrl: 'assets/deal1.jpg',
       description: 'Descrição da Oferta 1',
       price: 55,
     },
     {
       id: 12,
       name: 'Oferta 2',
-      image: 'assets/deal2.jpg',
+      imageUrl: 'assets/deal2.jpg',
       description: 'Descrição da Oferta 2',
       price: 53,
     },
     {
       id: 13,
       name: 'Oferta 3',
-      image: 'assets/deal3.jpg',
+      imageUrl: 'assets/deal3.jpg',
       description: 'Descrição da Oferta 3',
       price: 51,
     },
   ];
+
+  constructor(private router: Router) {}
+
+  onSearch(): void {
+    if (this.searchQuery.trim()) {
+      this.router.navigate(['/search'], {
+        queryParams: { query: this.searchQuery },
+      });
+    }
+  }
 }

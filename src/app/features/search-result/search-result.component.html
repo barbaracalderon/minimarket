@@ -1,11 +1,19 @@
 <div class="search-results">
+  <div class="section quarternary-color">
     <h2>Resultados da Busca</h2>
     <div *ngIf="searchResults.length === 0">
       <p>Nenhum produto encontrado.</p>
     </div>
-    <div *ngFor="let product of searchResults" class="product-item">
-      <img [src]="product.imageUrl" [alt]="product.name" class="product-image">
-      <p>{{ product.name }} - R$ {{ product.price }}</p>
+    <div class="card-container">
+      <!-- <div *ngFor="let product of searchResults" class="product-item"> -->
+      <!-- <img [src]="product.imageUrl" [alt]="product.name" class="product-image"> -->
+      <app-product-card
+        class="card"
+        *ngFor="let product of searchResults"
+        [product]="product"
+      ></app-product-card>
+      <!-- <p>{{ product.name }} - R$ {{ product.price }}</p> -->
+      <!-- </div> -->
     </div>
   </div>
-  
+</div>

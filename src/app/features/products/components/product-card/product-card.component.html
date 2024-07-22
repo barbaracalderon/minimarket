@@ -1,5 +1,10 @@
 <mat-card (click)="viewProduct()">
-  <img mat-card-image [src]="product.image" alt="Product Image" class="product-image">
+  <img
+    mat-card-image
+    [src]="product.imageUrl"
+    alt="Product Image"
+    class="product-image"
+  />
   <mat-card-content>
     <h2>{{ product.name }}</h2>
     <p>{{ product.price | currency }}</p>

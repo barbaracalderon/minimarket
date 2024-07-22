@@ -12,7 +12,12 @@ import { Router } from '@angular/router';
   providers: [CurrencyPipe],
 })
 export class ProductCardComponent {
-  @Input() product!: { id: number; name: string; image: string; price: number };
+  @Input() product!: {
+    id: number;
+    name: string;
+    imageUrl: string;
+    price: number;
+  };
 
   constructor(private router: Router) {}
 
