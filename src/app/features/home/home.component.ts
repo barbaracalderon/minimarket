@@ -35,12 +35,19 @@ export class HomeComponent {
     private productService: ProductService, 
     private router: Router
   ) {}
+  
   ngOnInit(): void {
-    this.productService.getProducts().subscribe((products: any) => {
+    this.productService.getProducts().subscribe((products: IProduct[]) => {
       this.products = products as IProduct[];
-      this.offers = this.products.slice(0, 3); // productService.getOffers();
-      this.bestSellers = this.products.slice(0, 5); //this.productService.getBestSellers();
-      this.dailyDeals = this.products.slice(1, 5); //this.productService.getDailyDeals(); */
+      this.offers = this.products.slice(0, 3); 
+    });
+
+    this.productService.getProductsByMostSold(7).subscribe((bestSellers: IProduct[]) => {
+      this.bestSellers = bestSellers;
+    });
+
+    this.productService.getProductsByPromotionalOffers().subscribe((dailyDeals: IProduct[]) => {
+      this.dailyDeals = dailyDeals;
     });
   }
 }
