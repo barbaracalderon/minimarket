@@ -1,15 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CurrencyPipe, CommonModule } from '@angular/common';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { CartService } from '../../../cart/cart.service';
 import { ProductService } from '../../../../shared/services/product.service';
 import { IProduct } from '../../../../core/models/product.model';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-product-view',
   standalone: true,
-  imports: [MatToolbarModule, CommonModule],
+  imports: [MatToolbarModule, CommonModule, RouterModule],
   templateUrl: './product-view.component.html',
   styleUrl: './product-view.component.scss',
   providers: [CurrencyPipe],
@@ -27,7 +28,8 @@ export class ProductViewComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private cartService: CartService,
-    private productService: ProductService
+    private productService: ProductService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -40,6 +42,6 @@ export class ProductViewComponent implements OnInit {
 
   addToCart(): void {
     this.cartService.addItem(this.product);
-    alert('Produto adicionado ao carrinho!');
+    this.router.navigate(['/cart']);
   }
 }
