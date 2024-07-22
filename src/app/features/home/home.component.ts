@@ -31,7 +31,10 @@ export class HomeComponent {
   bestSellers!: IProduct[];
   dailyDeals!: IProduct[];
 
-  constructor(private productService: ProductService, private router: Router) {}
+  constructor(
+    private productService: ProductService, 
+    private router: Router
+  ) {}
   ngOnInit(): void {
     this.productService.getProducts().subscribe((products: any) => {
       this.products = products as IProduct[];

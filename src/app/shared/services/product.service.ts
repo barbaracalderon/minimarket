@@ -3,6 +3,7 @@ import { BehaviorSubject, of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { IProduct } from '../../core/models/product.model';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
@@ -18,7 +19,10 @@ export class ProductService {
   }
 
   getProductById(id: number): Observable<IProduct> {
-    return this.http.get<IProduct>(`${this.productsUrl}/${id}`);
+    let response = this.http.get<IProduct[]>(this.productsUrl).pipe(
+      map((products: IProduct[]) => products.find((product: IProduct) => product.id === id)) // Specify the types for the parameters
+    );    
+    return response as Observable<IProduct>;
   }
 
   ngOnInit(): void {
