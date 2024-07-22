@@ -5,15 +5,6 @@ $quaternary-color: #92ba92;
 $white-color: #ffffff;
 $black-color: #000000;
 
-.tertiary-color {
-  color: $tertiary-color;
-  background: linear-gradient(to right, $tertiary-color, $white-color);
-}
-
-.quarternary-color {
-  background: linear-gradient(to right, $quaternary-color, $white-color);
-}
-
 
 #carouselHome {
   margin-top: 20px;
@@ -39,34 +30,4 @@ $black-color: #000000;
   .card {
     min-width: 150px;
   }
-}
-
-.search-container {
-  text-align: center;
-  margin: 20px 0;
-
-  .search-box {
-    display: inline-flex;
-    width: 100%;
-    max-width: 500px;
-    margin: 0 auto;
-    
-    .form-control {
-      flex: 1;
-      border-top-right-radius: 0;
-      border-bottom-right-radius: 0;
-    }
-    
-    .btn-primary {
-      border-top-left-radius: 0;
-      border-bottom-left-radius: 0;
-    }
-  }
-}
-
-footer {
-  margin-top: 20px;
-  text-align: center;
-  background-color: #f1f1f1;
-  padding: 10px 0;
 }
