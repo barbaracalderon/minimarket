@@ -1,0 +1,23 @@
+$primary-color: #f1ddbf;
+$secondary-color: #525e75;
+$tertiary-color: #78938a;
+$quaternary-color: #92ba92;
+$white-color: #ffffff;
+$black-color: #000000;
+
+.form-control {
+    border: 1px solid $secondary-color;
+    &:focus {
+      border-color: $tertiary-color;
+      box-shadow: 0 0 0 0.2rem rgba($tertiary-color, 0.25);
+    }
+  }
+
+  .btn-outline-search {
+    color: $secondary-color;
+    border-color: $secondary-color;
+    &:hover {
+      background-color: $secondary-color;
+      color: $white-color;
+    }
+  }

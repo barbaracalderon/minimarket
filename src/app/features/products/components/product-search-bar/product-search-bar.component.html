@@ -1,0 +1,15 @@
+<div class="collapse navbar-collapse justify-content-center" id="navbarSearch">
+  <form class="d-flex">
+    <input
+      class="form-control me-2"
+      type="search"
+      [(ngModel)]="searchQuery"
+      placeholder="Buscar produtos"
+      aria-label="Search"
+      name="search"
+    />
+    <button class="btn btn-outline-search" (click)="productSearch()">
+      <i class="fas fa-search"></i>
+    </button>
+  </form>
+</div>
