@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
-import { ProductCardComponent } from '../features/products/components/product-card/product-card.component';
+import { ProductCardComponent } from '../products/components/product-card/product-card.component';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -23,7 +23,7 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent {
   searchQuery: string = '';
-  
+
   offers = [
     { id: 1, image: 'assets/offer1.jpg' },
     { id: 2, image: 'assets/offer2.jpg' },
@@ -82,7 +82,9 @@ export class HomeComponent {
 
   onSearch(): void {
     if (this.searchQuery.trim()) {
-      this.router.navigate(['/search'], { queryParams: { query: this.searchQuery } });
+      this.router.navigate(['/search'], {
+        queryParams: { query: this.searchQuery },
+      });
     }
   }
 }
