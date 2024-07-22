@@ -6,6 +6,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { ProductCardComponent } from '../products/components/product-card/product-card.component';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ProductService } from '../../shared/services/product.service';
+import { IProduct } from '../../core/models/product.model';
 
 @Component({
   selector: 'app-home',
@@ -24,67 +26,21 @@ import { Router } from '@angular/router';
 export class HomeComponent {
   searchQuery: string = '';
 
-  offers = [
-    { id: 1, imageUrl: 'assets/offer1.jpg' },
-    { id: 2, imageUrl: 'assets/offer2.jpg' },
-    { id: 3, imageUrl: 'assets/offer3.jpg' },
-  ];
+  products!: IProduct[];
+  offers!: IProduct[];
+  bestSellers!: IProduct[];
+  dailyDeals!: IProduct[];
 
-  bestSellers = [
-    {
-      id: 1,
-      name: 'Produto 1',
-      imageUrl: 'assets/product1.jpg',
-      description: 'Descrição do Produto 1',
-      price: 100,
-    },
-    {
-      id: 2,
-      name: 'Produto 2',
-      imageUrl: 'assets/product2.jpg',
-      description: 'Descrição do Produto 2',
-      price: 70,
-    },
-    {
-      id: 3,
-      name: 'Produto 3',
-      imageUrl: 'assets/product3.jpg',
-      description: 'Descrição do Produto 3',
-      price: 25,
-    },
-  ];
-
-  dailyDeals = [
-    {
-      id: 11,
-      name: 'Oferta 1',
-      imageUrl: 'assets/deal1.jpg',
-      description: 'Descrição da Oferta 1',
-      price: 55,
-    },
-    {
-      id: 12,
-      name: 'Oferta 2',
-      imageUrl: 'assets/deal2.jpg',
-      description: 'Descrição da Oferta 2',
-      price: 53,
-    },
-    {
-      id: 13,
-      name: 'Oferta 3',
-      imageUrl: 'assets/deal3.jpg',
-      description: 'Descrição da Oferta 3',
-      price: 51,
-    },
-  ];
-
-  constructor(private router: Router) {}
-
-  onSearch(): void {
-    if (this.searchQuery.trim()) {
-      this.router.navigate(['/search'], {
-        queryParams: { query: this.searchQuery },
-      });
-    }
+  constructor(
+    private productService: ProductService, 
+    private router: Router
+  ) {}
+  ngOnInit(): void {
+    this.productService.getProducts().subscribe((products: any) => {
+      this.products = products as IProduct[];
+      this.offers = this.products.slice(0, 3); // productService.getOffers();
+      this.bestSellers = this.products.slice(0, 5); //this.productService.getBestSellers();
+      this.dailyDeals = this.products.slice(1, 5); //this.productService.getDailyDeals(); */
+    });
   }
 }

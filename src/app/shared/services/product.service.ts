@@ -1,38 +1,36 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, of } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { IProduct } from '../../core/models/product.model';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ProductService {
-  private products = [
-    {
-      id: 1,
-      name: 'Produto 1',
-      description: 'O primeiro produto da lojinha',
-      price: 100,
-      imageUrl: 'assets/product1.jpg',
-    },
-    {
-      id: 2,
-      name: 'Produto 2',
-      description: 'O segundo produto da lojinha',
-      price: 70,
-      imageUrl: 'assets/product2.jpg',
-    },
-    {
-      id: 2,
-      name: 'Produto 3',
-      description: 'O terceiro produto da lojinha',
-      price: 45,
-      imageUrl: 'assets/product3.jpg',
-    },
-  ];
+  private products: any[] = [];
+  private productsUrl = '/assets/productDB.json';
+
+  constructor(private http: HttpClient ) {}
+
+  getProducts(): Observable<IProduct[]> {
+    return this.http.get<IProduct[]>(this.productsUrl);
+  }
+
+  getProductById(id: number): Observable<IProduct> {
+    let response = this.http.get<IProduct[]>(this.productsUrl).pipe(
+      map((products: IProduct[]) => products.find((product: IProduct) => product.id === id)) // Specify the types for the parameters
+    );    
+    return response as Observable<IProduct>;
+  }
+
+  ngOnInit(): void {
+    
+  }
 
   private searchResults = new BehaviorSubject<any[]>([]);
   searchResults$ = this.searchResults.asObservable();
-
-  constructor() {}
 
   searchProducts(query: string) {
     const results = this.products.filter((product) =>

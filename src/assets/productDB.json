@@ -1,0 +1,212 @@
+[
+  {
+    "id": 1,
+    "name": "Produto 1",
+    "description": "Descrição detalhada do produto 1.",
+    "price": 29.99,
+    "imageUrl": "assets/images/product1.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Produto 2",
+    "description": "Descrição detalhada do produto 2.",
+    "price": 19.99,
+    "imageUrl": "assets/images/product2.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Produto 3",
+    "description": "Descrição detalhada do produto 3.",
+    "price": 39.99,
+    "imageUrl": "assets/images/product3.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Produto 4",
+    "description": "Descrição detalhada do produto 4.",
+    "price": 49.99,
+    "imageUrl": "assets/images/product4.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Produto 5",
+    "description": "Descrição detalhada do produto 5.",
+    "price": 59.99,
+    "imageUrl": "assets/images/product5.jpg"
+  },
+  {
+    "id": 6,
+    "name": "Produto 6",
+    "description": "Descrição detalhada do produto 6.",
+    "price": 69.99,
+    "imageUrl": "assets/images/product6.jpg"
+  },
+  {
+    "id": 7,
+    "name": "Produto 7",
+    "description": "Descrição detalhada do produto 7.",
+    "price": 79.99,
+    "imageUrl": "assets/images/product7.jpg"
+  },
+  {
+    "id": 8,
+    "name": "Produto 8",
+    "description": "Descrição detalhada do produto 8.",
+    "price": 89.99,
+    "imageUrl": "assets/images/product8.jpg"
+  },
+  {
+    "id": 9,
+    "name": "Produto 9",
+    "description": "Descrição detalhada do produto 9.",
+    "price": 99.99,
+    "imageUrl": "assets/images/product9.jpg"
+  },
+  {
+    "id": 10,
+    "name": "Produto 10",
+    "description": "Descrição detalhada do produto 10.",
+    "price": 109.99,
+    "imageUrl": "assets/images/product10.jpg"
+  },
+  {
+    "id": 11,
+    "name": "Produto 11",
+    "description": "Descrição detalhada do produto 11.",
+    "price": 119.99,
+    "imageUrl": "assets/images/product11.jpg"
+  },
+  {
+    "id": 12,
+    "name": "Produto 12",
+    "description": "Descrição detalhada do produto 12.",
+    "price": 129.99,
+    "imageUrl": "assets/images/product12.jpg"
+  },
+  {
+    "id": 13,
+    "name": "Produto 13",
+    "description": "Descrição detalhada do produto 13.",
+    "price": 139.99,
+    "imageUrl": "assets/images/product13.jpg"
+  },
+  {
+    "id": 14,
+    "name": "Produto 14",
+    "description": "Descrição detalhada do produto 14.",
+    "price": 149.99,
+    "imageUrl": "assets/images/product14.jpg"
+  },
+  {
+    "id": 15,
+    "name": "Produto 15",
+    "description": "Descrição detalhada do produto 15.",
+    "price": 159.99,
+    "imageUrl": "assets/images/product15.jpg"
+  },
+  {
+    "id": 16,
+    "name": "Produto 16",
+    "description": "Descrição detalhada do produto 16.",
+    "price": 169.99,
+    "imageUrl": "assets/images/product16.jpg"
+  },
+  {
+    "id": 17,
+    "name": "Produto 17",
+    "description": "Descrição detalhada do produto 17.",
+    "price": 179.99,
+    "imageUrl": "assets/images/product17.jpg"
+  },
+  {
+    "id": 18,
+    "name": "Produto 18",
+    "description": "Descrição detalhada do produto 18.",
+    "price": 189.99,
+    "imageUrl": "assets/images/product18.jpg"
+  },
+  {
+    "id": 19,
+    "name": "Produto 19",
+    "description": "Descrição detalhada do produto 19.",
+    "price": 199.99,
+    "imageUrl": "assets/images/product19.jpg"
+  },
+  {
+    "id": 20,
+    "name": "Produto 20",
+    "description": "Descrição detalhada do produto 20.",
+    "price": 209.99,
+    "imageUrl": "assets/images/product20.jpg"
+  },
+  {
+    "id": 21,
+    "name": "Produto 21",
+    "description": "Descrição detalhada do produto 21.",
+    "price": 219.99,
+    "imageUrl": "assets/images/product21.jpg"
+  },
+  {
+    "id": 22,
+    "name": "Produto 22",
+    "description": "Descrição detalhada do produto 22.",
+    "price": 229.99,
+    "imageUrl": "assets/images/product22.jpg"
+  },
+  {
+    "id": 23,
+    "name": "Produto 23",
+    "description": "Descrição detalhada do produto 23.",
+    "price": 239.99,
+    "imageUrl": "assets/images/product23.jpg"
+  },
+  {
+    "id": 24,
+    "name": "Produto 24",
+    "description": "Descrição detalhada do produto 24.",
+    "price": 249.99,
+    "imageUrl": "assets/images/product24.jpg"
+  },
+  {
+    "id": 25,
+    "name": "Produto 25",
+    "description": "Descrição detalhada do produto 25.",
+    "price": 259.99,
+    "imageUrl": "assets/images/product25.jpg"
+  },
+  {
+    "id": 26,
+    "name": "Produto 26",
+    "description": "Descrição detalhada do produto 26.",
+    "price": 269.99,
+    "imageUrl": "assets/images/product26.jpg"
+  },
+  {
+    "id": 27,
+    "name": "Produto 27",
+    "description": "Descrição detalhada do produto 27.",
+    "price": 279.99,
+    "imageUrl": "assets/images/product27.jpg"
+  },
+  {
+    "id": 28,
+    "name": "Produto 28",
+    "description": "Descrição detalhada do produto 28.",
+    "price": 289.99,
+    "imageUrl": "assets/images/product28.jpg"
+  },
+  {
+    "id": 29,
+    "name": "Produto 29",
+    "description": "Descrição detalhada do produto 29.",
+    "price": 299.99,
+    "imageUrl": "assets/images/product29.jpg"
+  },
+  {
+    "id": 30,
+    "name": "Produto 30",
+    "description": "Descrição detalhada do produto 30.",
+    "price": 309.99,
+    "imageUrl": "assets/images/product30.jpg"
+  }
+]

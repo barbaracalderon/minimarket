@@ -1,6 +1,6 @@
 <div
   id="carouselHome"
-  class="carousel slide tertiary-color p-2"
+  class="carousel slide gradient-tertiary-color p-2"
   data-bs-ride="carousel"
 >
   <div class="carousel-indicators">
@@ -27,13 +27,18 @@
   </div>
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="assets/offer1.jpg" class="d-block w-100" alt="Offer 1" />
+      <app-product-card
+      class="card"
+      [product]="this.offers[0]"
+      alt="Offer 2"
+    ></app-product-card> 
     </div>
-    <div class="carousel-item">
-      <img src="assets/offer2.jpg" class="d-block w-100" alt="Offer 2" />
-    </div>
-    <div class="carousel-item">
-      <img src="assets/offer3.jpg" class="d-block w-100" alt="Offer 3" />
+    <div *ngFor="let product of this.offers.slice(1)" class="carousel-item">
+      <app-product-card
+        class="card"
+        [product]="product"
+        alt="Offer 2"
+      ></app-product-card> 
     </div>
   </div>
   <button
@@ -61,7 +66,7 @@
   <div class="card-container">
     <app-product-card
       class="card"
-      *ngFor="let product of bestSellers"
+      *ngFor="let product of this.bestSellers"
       [product]="product"
     ></app-product-card>
   </div>
@@ -72,7 +77,7 @@
   <div class="card-container">
     <app-product-card
       class="card"
-      *ngFor="let product of dailyDeals"
+      *ngFor="let product of this.dailyDeals"
       [product]="product"
     ></app-product-card>
   </div>
