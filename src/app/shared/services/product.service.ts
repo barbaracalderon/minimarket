@@ -34,6 +34,21 @@ export class ProductService {
     );
   }
 
+  getProductsByPromotionalOffers(): Observable<IProduct[]> {
+    return this.productsLoaded.pipe(
+      filter((loaded) => loaded), // wait for products to load
+      map(() => this.products.slice(5, 12))
+    );
+  }
+
+  getProductsByMostSold(period: number): Observable<IProduct[]> {
+    //do some magic in the future with the period parameter
+    return this.productsLoaded.pipe(
+      filter((loaded) => loaded), // wait for products to load
+      map(() => this.products.slice(Math.floor(Math.random() * 5) + 1, period))
+    );
+  }
+
   getProductById(id: number): Observable<IProduct> {
     return this.productsLoaded.pipe(
       filter((loaded) => loaded), // Wait until products are loaded
