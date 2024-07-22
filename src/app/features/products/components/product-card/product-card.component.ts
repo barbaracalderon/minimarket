@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { CurrencyPipe } from '@angular/common';
 import { Router } from '@angular/router';
+import { IProduct } from '../../../../core/models/product.model';
 
 @Component({
   selector: 'app-product-card',
@@ -12,12 +13,7 @@ import { Router } from '@angular/router';
   providers: [CurrencyPipe],
 })
 export class ProductCardComponent {
-  @Input() product!: {
-    id: number;
-    name: string;
-    imageUrl: string;
-    price: number;
-  };
+  @Input() product!: IProduct;
 
   constructor(private router: Router) {}
 
