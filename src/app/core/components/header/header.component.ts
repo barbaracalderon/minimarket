@@ -5,13 +5,14 @@ import { ProductService } from '../../../shared/services/product.service';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { ProductSearchBarComponent } from '../../../features/products/components/product-search-bar/product-search-bar.component';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
   standalone: true,
-  imports: [RouterModule, CommonModule, FormsModule],
+  imports: [RouterModule, CommonModule, FormsModule, ProductSearchBarComponent],
 })
 export class HeaderComponent {
   searchQuery: string = '';
@@ -31,13 +32,5 @@ export class HeaderComponent {
 
   get cartItemCount(): number {
     return this.cartService.getCartItemCount();
-  }
-
-  onSearch(event: Event): void {
-    event.preventDefault();
-    if (this.searchQuery.trim()) {
-      this.productService.searchProducts(this.searchQuery);
-      this.router.navigate(['/search']);
-    }
   }
 }
