@@ -2,6 +2,7 @@
   id="carouselHome"
   class="carousel slide gradient-tertiary-color p-2"
   data-bs-ride="carousel"
+  *ngIf="offers.length"
 >
   <div class="carousel-indicators">
     <button
@@ -28,14 +29,14 @@
   <div class="carousel-inner">
     <div class="carousel-item active">
       <app-product-card
-      class="card"
+      class="card clickeable-card"
       [product]="this.offers[0]"
       alt="Offer 2"
     ></app-product-card> 
     </div>
     <div *ngFor="let product of this.offers.slice(1)" class="carousel-item">
       <app-product-card
-        class="card"
+        class="card clickeable-card"
         [product]="product"
         alt="Offer 2"
       ></app-product-card> 
