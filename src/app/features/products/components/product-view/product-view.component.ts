@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { CurrencyPipe, CommonModule } from '@angular/common';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { CartService } from '../../../cart/cart.service';
-import { ProductService } from '../../../../shared/services/product.service';
+import { ProductService, CommentService } from '../../../../shared/services/';
 import { IProduct } from '../../../../core/models/product.model';
-import { RouterModule } from '@angular/router';
+import { IComment } from '../../../../core/models/comment.model';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-product-view',
@@ -17,27 +18,24 @@ import { RouterModule } from '@angular/router';
 })
 export class ProductViewComponent implements OnInit {
   product!: IProduct;
-  comments: string[] = [
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-    'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-    'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
-    'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-  ];
+  comments$: Observable<IComment[]> = new Observable<IComment[]>();
 
   constructor(
     private route: ActivatedRoute,
     private cartService: CartService,
     private productService: ProductService,
+    private commentService: CommentService,
     private router: Router
   ) {}
 
   ngOnInit(): void {
     const productId = Number(this.route.snapshot.paramMap.get('id'));
-    this.productService.getProductById(productId).subscribe((product: IProduct) => {
-    this.product = product as IProduct;
-
-    });
+    this.productService
+      .getProductById(productId)
+      .subscribe((product: IProduct) => {
+        this.product = product as IProduct;
+      });
+    this.comments$ = this.commentService.getCommentsByProductId(productId);
   }
 
   addToCart(): void {

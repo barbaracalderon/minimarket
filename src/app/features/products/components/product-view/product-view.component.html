@@ -25,13 +25,22 @@
     </div>
   </div>
 
-  <div *ngIf="comments.length > 0" class="product-comments">
-    <h3>Comentários dos Clientes</h3>
-    <div
-      class="comment gradient-tertiary-color"
-      *ngFor="let comment of comments"
-    >
-      <p>{{ comment }}</p>
-    </div>
+  <div class="commnent-section">
+    <h3 class="p-2">Comentários dos Clientes</h3>
+    <ng-container *ngIf="comments$ | async as comments; else noComments" >
+      <div *ngIf="comments.length > 0; else noComments" class="product-comments">
+        <div
+          class="comment gradient-tertiary-color"
+          *ngFor="let comment of comments"
+        >
+          <p>{{ comment.comment }}</p>
+        </div>
+      </div>
+    </ng-container>  
+    <ng-template #noComments>
+      <div class="comment quarternary-color">
+        <p>Nenhum comentário para este produto ainda. Quer ser o primeiro?.</p>
+      </div>
+    </ng-template>
   </div>
 </div>
