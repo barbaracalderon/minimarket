@@ -26,10 +26,10 @@ import { IProduct } from '../../core/models/product.model';
 export class HomeComponent {
   searchQuery: string = '';
 
-  products!: IProduct[];
-  offers!: IProduct[];
-  bestSellers!: IProduct[];
-  dailyDeals!: IProduct[];
+  products: IProduct[] = [];
+  offers: IProduct[] = [];
+  bestSellers: IProduct[] = [];
+  dailyDeals: IProduct[] = [];
 
   constructor(
     private productService: ProductService, 

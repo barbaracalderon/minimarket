@@ -1,4 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+  --mdc-elevated-card-container-elevation: none;
+}
+
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
@@ -20,7 +24,7 @@ $black-color: #000000;
 
 .quarternary-color {
   background: linear-gradient(to right, $quaternary-color, $white-color);
-  
+
 }
 
 .gradient-tertiary-color {

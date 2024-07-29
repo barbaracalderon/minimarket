@@ -1,83 +1,36 @@
 <div class="product-view">
-  <mat-toolbar class="gradient-tertiary-color">
-    {{ this.product.name }}
-  </mat-toolbar>
-
-  <div class="product-details gradient-quarternary-color">
-    <div id="carouselProductImages" class="carousel" data-bs-ride="carousel">
-      <div class="carousel-indicators">
-        <button
-          type="button"
-          data-bs-target="#carouselProductImages"
-          data-bs-slide-to="0"
-          class="active"
-          aria-current="true"
-          aria-label="Slide 1"
-        ></button>
-        <button
-          type="button"
-          data-bs-target="#carouselProductImages"
-          data-bs-slide-to="1"
-          aria-label="Slide 2"
-        ></button>
-        <button
-          type="button"
-          data-bs-target="#carouselProductImages"
-          data-bs-slide-to="2"
-          aria-label="Slide 3"
-        ></button>
-      </div>
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img
-            [src]="this.product.imageUrl"
-            class="d-flex align-itens-center"
-            alt="Product Image"
-          />
-        </div>
-        <div class="carousel-item">
-          <img
-            [src]="this.product.imageUrl"
-            class="d-flex align-itens-center"
-            alt="Product Image"
-          />
-        </div>
-      </div>
-      <div class="carousel-controls">
-        <button
-          class="carousel-control-prev"
-          type="button"
-          data-bs-target="#carouselProductImages"
-          data-bs-slide="prev"
-        >
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button
-          class="carousel-control-next"
-          type="button"
-          data-bs-target="#carouselProductImages"
-          data-bs-slide="next"
-        >
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
+  <div *ngIf="product" class="product-details gradient-quarternary-color">
+    <div class="product-image-section">
+      <div class="image-container">
+        <img
+          [src]="product.imageUrl"
+          class="product-image"
+          alt="Product Image"
+        />
       </div>
     </div>
 
-    <div class="product-info">
-      <h1>{{ this.product.name }}</h1>
-      <p>{{ this.product.description }}</p>
-      <h2>{{ this.product.price | currency }}</h2>
-      <button mat-raised-button color="primary" (click)="addToCart()">
+    <div class="product-info-section">
+      <h1>{{ product.name }}</h1>
+      <p>{{ product.description }}</p>
+      <h2>{{ product.price | currency }}</h2>
+      <button
+        mat-raised-button
+        color="primary"
+        (click)="addToCart()"
+        class="btn btn-secondary"
+      >
         Adicionar ao Carrinho
       </button>
     </div>
   </div>
 
-  <div class="product-comments">
-    <h3> Comentários dos Clientes</h3>
-    <div class="comment gradient-tertiary-color" *ngFor="let comment of comments">
+  <div *ngIf="comments.length > 0" class="product-comments">
+    <h3>Comentários dos Clientes</h3>
+    <div
+      class="comment gradient-tertiary-color"
+      *ngFor="let comment of comments"
+    >
       <p>{{ comment }}</p>
     </div>
   </div>
