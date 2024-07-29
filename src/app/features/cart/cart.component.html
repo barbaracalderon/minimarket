@@ -6,8 +6,7 @@
     <app-cart-item class="cart-row"
       *ngFor="let item of cartItems"
       [item]="item"
-      (quantityChanged)="updateTotal()"
-      (itemRemoved)="removeFromCart(item)"
+      (removeItem)="removeFromCart(item.product)"
     ></app-cart-item>
   
     <div class="cart-summary">

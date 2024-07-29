@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { CurrencyPipe, CommonModule } from '@angular/common';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { CartService } from '../../../cart/cart.service';
+import { CartService } from '../../../../shared/services/cart.service';
 import { ProductService, CommentService } from '../../../../shared/services/';
 import { IProduct } from '../../../../core/models/product.model';
 import { IComment } from '../../../../core/models/comment.model';
@@ -37,9 +37,9 @@ export class ProductViewComponent implements OnInit {
       });
     this.comments$ = this.commentService.getCommentsByProductId(productId);
   }
-
+  //TODO: Needs to test with several products
   addToCart(): void {
-    this.cartService.addItem(this.product);
+    this.cartService.addItem(this.product, 1);
     this.router.navigate(['/cart']);
   }
 }

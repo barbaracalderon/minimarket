@@ -1,32 +1,31 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { ICartItem, CartService } from '../../../../shared/services/cart.service';
+import { IProduct } from '../../../../core/models/product.model';
 
 @Component({
   selector: 'app-cart-item',
   templateUrl: './cart-item.component.html',
   styleUrls: ['./cart-item.component.scss'],
   standalone: true,
-  imports: [CommonModule]
+  imports: [CommonModule],
 })
 export class CartItemComponent {
-  @Input() item: any;
-  @Output() remove = new EventEmitter<void>();
+  @Input() item: ICartItem = {} as ICartItem;
+
+  @Output() removeItem = new EventEmitter<IProduct>();
+
+  constructor(private cartService: CartService) {}
 
   incrementQuantity() {
-    if (this.item.quantity < 10) {
-      this.item.quantity++;
-      this.item.total = this.item.unitPrice * this.item.quantity;
-    }
+    this.cartService.addItem(this.item.product, 1);
   }
 
   decrementQuantity() {
-    if (this.item.quantity > 1) {
-      this.item.quantity--;
-      this.item.total = this.item.unitPrice * this.item.quantity;
-    }
+    this.cartService.removeItem(this.item.product, 1);
   }
 
   removeFromCart() {
-    this.remove.emit();
+    this.removeItem.emit(this.item.product);
   }
 }

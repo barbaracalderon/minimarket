@@ -1,16 +1,16 @@
 <div class="cart-item">
   <div class="product-details">
     <div class = "image-section">
-      <img [src]="item.imageUrl" alt="{{ item.name }}" class="item-image">
+      <img [src]="item.product.imageUrl" alt="{{ item.product.name }}" class="item-image">
     </div>  
     <div>
-      <h5>{{ item.name }}</h5>
+      <h5>{{ item.product.name }}</h5>
     </div>
     <div>
-      <p>Preço Unitário: R$ {{ item.unitPrice | currency }}</p>
+      <p>Preço Unitário: R$ {{ item.product.price | currency }}</p>
     </div>
     <div>
-      <p>Total: R$ {{ item.total | currency }}</p>
+      <p>Total: R$ {{ item.product.price * item.quantity | currency }}</p>
     </div>
     
     <div class="quantity-controls">
