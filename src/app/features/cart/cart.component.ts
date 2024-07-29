@@ -33,9 +33,7 @@ export class CartComponent implements OnInit {
     this.totalAmount = this.totalValue + this.shippingCost;
   }
 
-  removeFromCart(item: IProduct) {
-    console.log('removeFromCart', item);
-    
+  removeFromCart(item: IProduct) {    
     let cartItem = this.cartItems.find((i) => i.product === item);
     if (cartItem) {
       this.cartService.removeItem(item, cartItem.quantity);

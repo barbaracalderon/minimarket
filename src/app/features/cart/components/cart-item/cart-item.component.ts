@@ -12,6 +12,7 @@ import { IProduct } from '../../../../core/models/product.model';
 })
 export class CartItemComponent {
   @Input() item: ICartItem = {} as ICartItem;
+  @Output() quantityChanged = new EventEmitter<void>();
 
   @Output() removeItem = new EventEmitter<IProduct>();
 
@@ -19,13 +20,16 @@ export class CartItemComponent {
 
   incrementQuantity() {
     this.cartService.addItem(this.item.product, 1);
+    this.quantityChanged.emit();
   }
 
   decrementQuantity() {
     this.cartService.removeItem(this.item.product, 1);
+    this.quantityChanged.emit();
   }
 
   removeFromCart() {
     this.removeItem.emit(this.item.product);
+    this.quantityChanged.emit();
   }
 }
