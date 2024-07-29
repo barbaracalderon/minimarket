@@ -1,0 +1,46 @@
+<div class="product-view">
+  <div *ngIf="product" class="product-details gradient-quarternary-color">
+    <div class="product-image-section">
+      <div class="image-container">
+        <img
+          [src]="product.imageUrl"
+          class="product-image"
+          alt="Product Image"
+        />
+      </div>
+    </div>
+
+    <div class="product-info-section">
+      <h1>{{ product.name }}</h1>
+      <p>{{ product.description }}</p>
+      <h2>{{ product.price | currency }}</h2>
+      <button
+        mat-raised-button
+        color="primary"
+        (click)="addToCart()"
+        class="btn btn-secondary"
+      >
+        Adicionar ao Carrinho
+      </button>
+    </div>
+  </div>
+
+  <div class="commnent-section">
+    <h3 class="p-2">Comentários dos Clientes</h3>
+    <ng-container *ngIf="comments$ | async as comments; else noComments" >
+      <div *ngIf="comments.length > 0; else noComments" class="product-comments">
+        <div
+          class="comment gradient-tertiary-color"
+          *ngFor="let comment of comments"
+        >
+          <p>{{ comment.comment }}</p>
+        </div>
+      </div>
+    </ng-container>  
+    <ng-template #noComments>
+      <div class="comment quarternary-color">
+        <p>Nenhum comentário para este produto ainda. Quer ser o primeiro?.</p>
+      </div>
+    </ng-template>
+  </div>
+</div>

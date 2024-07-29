@@ -1,0 +1,83 @@
+$primary-color: #f1ddbf;
+$secondary-color: #525e75;
+$tertiary-color: #78938a;
+$quaternary-color: #92ba92;
+$white-color: #ffffff;
+$black-color: #000000;
+
+
+mat-card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.cart-item {
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 100px;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+  border-radius: 5px;
+
+  .product-details {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+
+    .image-section {
+      flex: 0 0 5rem; // Largura fixa para a imagem
+
+      img {
+        width: 100%;
+        height: fit-content;
+        max-width: 100px;
+        max-height: 100px;
+      }
+    }
+
+    h5 {
+      flex: 1;
+      margin: 0 10px;
+      text-align: center;
+    }
+
+    p {
+      flex: 1;
+      margin: 0 10px;
+      text-align: center;
+    }
+
+    .quantity-controls {
+      flex: 0 0 100px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      button {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        border: 1px solid #ccc;
+        background-color: #fff;
+        cursor: pointer;
+        background-color: $quaternary-color;
+        color: $white-color;
+      }
+
+      span {
+        margin: 0 10px;
+      }
+    }
+
+    .btn-danger {
+      flex: 0 0 2rem;
+      margin-left: 10px;
+    }
+  }
+}

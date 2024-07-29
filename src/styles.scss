@@ -1,0 +1,40 @@
+/* You can add global styles to this file, and also import other style files */
+:root {
+  --mdc-elevated-card-container-elevation: none;
+}
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+$primary-color: #f1ddbf;
+$secondary-color: #525e75;
+$tertiary-color: #78938a;
+$quaternary-color: #92ba92;
+$white-color: #ffffff;
+$black-color: #000000;
+
+.tertiary-color {
+  color: $tertiary-color;
+  background: linear-gradient(to top, $tertiary-color, $white-color, $quaternary-color);
+  background: linear-gradient(to right, $tertiary-color, $white-color, $quaternary-color);
+  background: linear-gradient(to bottom, $tertiary-color, $white-color, $quaternary-color);
+  background: linear-gradient(to left, $tertiary-color, $white-color, $quaternary-color);
+}
+
+.quarternary-color {
+  background: linear-gradient(to right, $quaternary-color, $white-color);
+
+}
+
+.gradient-tertiary-color {
+  background: linear-gradient(to right, $tertiary-color, $white-color);
+}
+
+.gradient-secondary-collor {
+  background: linear-gradient(to right, $secondary-color, $white-color);
+}
+
+.gradient-quarternary-color {
+  background: linear-gradient(to right, $quaternary-color, $white-color);
+}

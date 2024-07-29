@@ -1,0 +1,71 @@
+$primary-color: #f1ddbf;
+$secondary-color: #525e75;
+$tertiary-color: #78938a;
+$quaternary-color: #92ba92;
+$white-color: #ffffff;
+$black-color: #000000;
+
+.gradient-tertiary-color {
+  background: linear-gradient(to bottom, $primary-color, $tertiary-color);
+}
+
+.gradient-quarternary-color {
+  background: linear-gradient(to bottom, $tertiary-color, $quaternary-color);
+}
+
+#carouselHome {
+  height: 400px;
+}
+
+.carousel-inner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.carousel-indicators button {
+  background-color: rgba(255, 255, 255, 0.5);
+  border: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.section {
+  margin: 20px 0 10px 0;
+  padding: 0;
+  width: 100%;
+
+  h2 {
+    margin-left: 20px;
+  }
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 10px 0;
+  padding-bottom: 10px;
+  justify-content: space-evenly;
+
+  .card {
+    min-width: 150px;
+    flex: 1;
+    margin: 10px;
+  }
+}
+
+app-product-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: calc(15% - 10px);
+}
+
+.clickeable-card {
+  cursor: pointer;
+}

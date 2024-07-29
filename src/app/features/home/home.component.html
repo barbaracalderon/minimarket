@@ -1,0 +1,85 @@
+<div
+  id="carouselHome"
+  class="carousel slide gradient-tertiary-color p-2"
+  data-bs-ride="carousel"
+  *ngIf="offers.length"
+>
+  <div class="carousel-indicators">
+    <button
+      type="button"
+      data-bs-target="#carouselHome"
+      data-bs-slide-to="0"
+      class="active"
+      aria-current="true"
+      aria-label="Slide 1"
+    ></button>
+    <button
+      type="button"
+      data-bs-target="#carouselHome"
+      data-bs-slide-to="1"
+      aria-label="Slide 2"
+    ></button>
+    <button
+      type="button"
+      data-bs-target="#carouselHome"
+      data-bs-slide-to="2"
+      aria-label="Slide 3"
+    ></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <app-product-card
+      class="card clickeable-card"
+      [product]="this.offers[0]"
+      alt="Offer 2"
+    ></app-product-card> 
+    </div>
+    <div *ngFor="let product of this.offers.slice(1)" class="carousel-item">
+      <app-product-card
+        class="card clickeable-card"
+        [product]="product"
+        alt="Offer 2"
+      ></app-product-card> 
+    </div>
+  </div>
+  <button
+    class="carousel-control-prev"
+    type="button"
+    data-bs-target="#carouselHome"
+    data-bs-slide="prev"
+  >
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button
+    class="carousel-control-next"
+    type="button"
+    data-bs-target="#carouselHome"
+    data-bs-slide="next"
+  >
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+<div class="section quarternary-color">
+  <h2>Mais Vendidos da Semana</h2>
+  <div class="card-container">
+    <app-product-card
+      class="card"
+      *ngFor="let product of this.bestSellers"
+      [product]="product"
+    ></app-product-card>
+  </div>
+</div>
+
+<div class="section quarternary-color">
+  <h2>Ofertas do Dia</h2>
+  <div class="card-container">
+    <app-product-card
+      class="card"
+      *ngFor="let product of this.dailyDeals"
+      [product]="product"
+    ></app-product-card>
+  </div>
+</div>
