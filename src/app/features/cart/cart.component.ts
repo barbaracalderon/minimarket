@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { CartService } from './cart.service';
+import { CartService, ICartItem } from '../../shared/services/cart.service';
 import { CartItemComponent } from './components/cart-item/cart-item.component';
 import { CommonModule } from '@angular/common';
 import { RouterLink, RouterModule } from '@angular/router';
+import { IProduct } from '../../core/models/product.model';
 
 @Component({
   selector: 'app-cart',
@@ -12,7 +13,7 @@ import { RouterLink, RouterModule } from '@angular/router';
   imports: [CartItemComponent, CommonModule, RouterLink],
 })
 export class CartComponent implements OnInit {
-  cartItems: any[] = [];
+  cartItems: ICartItem[] = [];
   shippingCost = 10;
   totalValue = 0;
   totalAmount = 0;
@@ -25,17 +26,18 @@ export class CartComponent implements OnInit {
       this.updateTotal();
     });
   }
-
   updateTotal() {
     this.totalValue = this.cartItems.reduce(
-      (sum, item) => sum + item.unitPrice * item.quantity,
-      0
+      (sum, item) => sum + item.product.price * item.quantity, 0
     );
     this.totalAmount = this.totalValue + this.shippingCost;
   }
 
-  removeFromCart(item: any) {
-    this.cartItems = this.cartItems.filter((i) => i !== item);
+  removeFromCart(item: IProduct) {    
+    let cartItem = this.cartItems.find((i) => i.product === item);
+    if (cartItem) {
+      this.cartService.removeItem(item, cartItem.quantity);
+    }
     this.updateTotal();
   }
 }
